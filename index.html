@@ -1,304 +1,472 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sajalpreet Kaur Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sajalpreet Kaur Portfolio</title>
 
-    <style>
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-            font-family: Arial, sans-serif;
-        }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        body{
-            background:#0f172a;
-            color:white;
-            line-height:1.6;
-        }
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+      scroll-behavior:smooth;
+    }
 
-        header{
-            height:100vh;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            text-align:center;
-            background:linear-gradient(to right,#1e293b,#0f172a);
-            padding:20px;
-        }
+    body{
+      background:#050816;
+      color:white;
+      overflow-x:hidden;
+    }
 
-        .hero h1{
-            font-size:55px;
-            color:#38bdf8;
-        }
+    /* Navbar */
+    nav{
+      width:100%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 8%;
+      position:fixed;
+      top:0;
+      z-index:1000;
+      background:rgba(0,0,0,0.4);
+      backdrop-filter:blur(10px);
+    }
 
-        .hero p{
-            font-size:20px;
-            margin-top:10px;
-        }
+    nav h2{
+      color:#8b5cf6;
+      font-size:28px;
+    }
 
-        .btn{
-            display:inline-block;
-            margin-top:20px;
-            padding:12px 25px;
-            background:#38bdf8;
-            color:black;
-            text-decoration:none;
-            border-radius:30px;
-            font-weight:bold;
-            transition:0.3s;
-        }
+    nav ul{
+      display:flex;
+      list-style:none;
+      gap:30px;
+    }
 
-        .btn:hover{
-            background:white;
-        }
+    nav ul li a{
+      text-decoration:none;
+      color:white;
+      transition:0.3s;
+      font-weight:500;
+    }
 
-        section{
-            padding:60px 10%;
-        }
+    nav ul li a:hover{
+      color:#8b5cf6;
+    }
 
-        h2{
-            color:#38bdf8;
-            margin-bottom:20px;
-            font-size:35px;
-            border-bottom:2px solid #38bdf8;
-            display:inline-block;
-            padding-bottom:5px;
-        }
+    /* Hero */
+    .hero{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:120px 10%;
+      position:relative;
+      background:linear-gradient(to bottom right,#050816,#111827);
+    }
 
-        .card{
-            background:#1e293b;
-            padding:25px;
-            margin-top:20px;
-            border-radius:15px;
-            transition:0.3s;
-        }
+    .hero-content{
+      max-width:700px;
+      animation:fadeUp 1s ease;
+    }
 
-        .card:hover{
-            transform:translateY(-5px);
-        }
+    .hero h1{
+      font-size:65px;
+      line-height:1.2;
+    }
 
-        ul{
-            margin-left:20px;
-            margin-top:10px;
-        }
+    .hero h1 span{
+      color:#8b5cf6;
+    }
 
-        .skills{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-            gap:20px;
-        }
+    .hero p{
+      margin-top:20px;
+      font-size:18px;
+      color:#cbd5e1;
+      line-height:1.8;
+    }
 
-        footer{
-            text-align:center;
-            padding:20px;
-            background:#020617;
-            margin-top:40px;
-        }
+    .buttons{
+      margin-top:30px;
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+    }
 
-        a{
-            color:#38bdf8;
-            text-decoration:none;
-        }
+    .btn{
+      padding:14px 30px;
+      border:none;
+      border-radius:40px;
+      background:#8b5cf6;
+      color:white;
+      text-decoration:none;
+      font-weight:600;
+      transition:0.3s;
+      box-shadow:0 0 20px rgba(139,92,246,0.4);
+    }
 
-    </style>
+    .btn:hover{
+      transform:translateY(-5px);
+      background:#7c3aed;
+    }
+
+    .outline{
+      background:transparent;
+      border:2px solid #8b5cf6;
+    }
+
+    .outline:hover{
+      background:#8b5cf6;
+    }
+
+    /* Floating circles */
+    .circle{
+      position:absolute;
+      border-radius:50%;
+      background:rgba(139,92,246,0.15);
+      animation:float 6s infinite ease-in-out;
+    }
+
+    .circle1{
+      width:200px;
+      height:200px;
+      top:10%;
+      left:5%;
+    }
+
+    .circle2{
+      width:300px;
+      height:300px;
+      bottom:5%;
+      right:5%;
+      animation-delay:2s;
+    }
+
+    section{
+      padding:100px 10%;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:60px;
+    }
+
+    .section-title h2{
+      font-size:40px;
+      color:#8b5cf6;
+    }
+
+    .section-title p{
+      color:#94a3b8;
+      margin-top:10px;
+    }
+
+    /* Cards */
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
+    }
+
+    .card{
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.1);
+      padding:30px;
+      border-radius:25px;
+      transition:0.4s;
+      backdrop-filter:blur(12px);
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+      border-color:#8b5cf6;
+      box-shadow:0 0 25px rgba(139,92,246,0.2);
+    }
+
+    .card h3{
+      margin-bottom:15px;
+      color:#8b5cf6;
+      font-size:24px;
+    }
+
+    .card p,
+    .card li{
+      color:#d1d5db;
+      line-height:1.8;
+    }
+
+    ul{
+      padding-left:20px;
+    }
+
+    /* Skills */
+    .skill{
+      margin-bottom:20px;
+    }
+
+    .skill span{
+      display:block;
+      margin-bottom:8px;
+    }
+
+    .progress{
+      width:100%;
+      height:10px;
+      background:#1e293b;
+      border-radius:20px;
+      overflow:hidden;
+    }
+
+    .progress div{
+      height:100%;
+      background:linear-gradient(to right,#8b5cf6,#06b6d4);
+      border-radius:20px;
+    }
+
+    /* Contact */
+    .contact-box{
+      text-align:center;
+      background:rgba(255,255,255,0.05);
+      padding:50px;
+      border-radius:30px;
+      border:1px solid rgba(255,255,255,0.1);
+    }
+
+    .contact-box p{
+      margin:15px 0;
+      font-size:18px;
+    }
+
+    footer{
+      text-align:center;
+      padding:25px;
+      background:#020617;
+      color:#94a3b8;
+    }
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(40px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @keyframes float{
+      0%{
+        transform:translateY(0px);
+      }
+      50%{
+        transform:translateY(-25px);
+      }
+      100%{
+        transform:translateY(0px);
+      }
+    }
+
+    @media(max-width:768px){
+      nav{
+        flex-direction:column;
+        gap:15px;
+      }
+
+      nav ul{
+        gap:15px;
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+
+      .hero h1{
+        font-size:42px;
+      }
+
+      .hero p{
+        font-size:16px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    <!-- HERO SECTION -->
-    <header>
-        <div class="hero">
-            <h1>SAJALPREET KAUR</h1>
-            <p>MCA Student | Frontend Developer | Web Enthusiast</p>
+  <!-- Navbar -->
+  <nav>
+    <h2>Portfolio</h2>
 
-            <p>
-                📞 +91-6280734886 <br>
-                📍 Udhanwal, Punjab, India <br>
-                ✉ sajalpreetkaur0@gmail.com <br>
-                💻 GitHub:
-                <a href="https://github.com/sajalpreet" target="_blank">
-                    github.com/sajalpreet
-                </a>
-            </p>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-            <a href="#projects" class="btn">View Projects</a>
-        </div>
-    </header>
+  <!-- Hero Section -->
+  <section class="hero">
 
-    <!-- ABOUT -->
-    <section id="about">
-        <h2>About Me</h2>
+    <div class="circle circle1"></div>
+    <div class="circle circle2"></div>
 
-        <div class="card">
-            <p>
-                I am an enthusiastic MCA student passionate about web development,
-                programming, and software technologies. I enjoy creating responsive
-                and modern websites using React.js, HTML, CSS, and JavaScript.
-            </p>
-        </div>
-    </section>
+    <div class="hero-content">
+      <h1>Hello, I'm <span>Sajalpreet Kaur</span></h1>
 
-    <!-- EDUCATION -->
-    <section id="education">
-        <h2>Education</h2>
+      <p>
+        MCA Student | Frontend Developer | Passionate about creating
+        modern, responsive, and interactive websites using React.js,
+        HTML, CSS, and JavaScript.
+      </p>
 
-        <div class="card">
-            <h3>Master of Computer Applications (MCA)</h3>
-            <p>Guru Nanak Dev University, Amritsar</p>
-            <p>2024 - 2026 | CGPA: 8.54</p>
-        </div>
+      <div class="buttons">
+        <a href="#projects" class="btn">View Projects</a>
+        <a href="#contact" class="btn outline">Contact Me</a>
+      </div>
+    </div>
+  </section>
 
-        <div class="card">
-            <h3>Bachelor of Computer Applications (BCA)</h3>
-            <p>Central College, Ghoman</p>
-            <p>2021 - 2024 | Percentage: 83.58%</p>
-        </div>
-    </section>
+  <!-- About -->
+  <section id="about">
 
-    <!-- SKILLS -->
-    <section id="skills">
-        <h2>Skills</h2>
+    <div class="section-title">
+      <h2>About Me</h2>
+      <p>Know more about me</p>
+    </div>
 
-        <div class="skills">
+    <div class="card">
+      <p>
+        I am an enthusiastic MCA student with a strong interest in web development,
+        software technologies, and modern UI design. I enjoy building responsive and
+        user-friendly applications while continuously learning new technologies.
+      </p>
+    </div>
+  </section>
 
-            <div class="card">
-                <h3>Technical Skills</h3>
-                <ul>
-                    <li>JavaScript</li>
-                    <li>C++</li>
-                    <li>DSA</li>
-                    <li>React.js</li>
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    <li>Bootstrap</li>
-                    <li>SQL</li>
-                    <li>MongoDB</li>
-                </ul>
-            </div>
+  <!-- Skills -->
+  <section id="skills">
 
-            <div class="card">
-                <h3>Soft Skills</h3>
-                <ul>
-                    <li>Leadership</li>
-                    <li>Teamwork</li>
-                    <li>Communication</li>
-                    <li>Time Management</li>
-                    <li>Canva</li>
-                    <li>Event Planning</li>
-                </ul>
-            </div>
+    <div class="section-title">
+      <h2>My Skills</h2>
+      <p>Technical and professional skills</p>
+    </div>
 
-        </div>
-    </section>
+    <div class="grid">
 
-    <!-- PROJECTS -->
-    <section id="projects">
-        <h2>Projects</h2>
+      <div class="card">
+        <h3>Frontend</h3>
 
-        <div class="card">
-            <h3>Library Management System</h3>
-            <ul>
-                <li>Created using Python and MySQL.</li>
-                <li>Added login and database features.</li>
-                <li>Improved data management and problem-solving skills.</li>
-            </ul>
+        <div class="skill">
+          <span>HTML & CSS</span>
+          <div class="progress"><div style="width:95%"></div></div>
         </div>
 
-        <div class="card">
-            <h3>RentOn Vehicle Management System</h3>
-            <ul>
-                <li>Built using HTML, CSS, React.js, and MongoDB.</li>
-                <li>Designed a clean and responsive user interface.</li>
-                <li>Vehicle rental management web-based project.</li>
-            </ul>
+        <div class="skill">
+          <span>JavaScript</span>
+          <div class="progress"><div style="width:85%"></div></div>
         </div>
 
-        <div class="card">
-            <h3>Portfolio Website</h3>
-            <ul>
-                <li>Created a personal portfolio website.</li>
-                <li>Showcased skills, projects, and achievements.</li>
-                <li>Designed using HTML, CSS, and React.js.</li>
-            </ul>
+        <div class="skill">
+          <span>React.js</span>
+          <div class="progress"><div style="width:80%"></div></div>
         </div>
-    </section>
+      </div>
 
-    <!-- CERTIFICATIONS -->
-    <section id="certifications">
-        <h2>Certifications</h2>
+      <div class="card">
+        <h3>Backend & Database</h3>
 
-        <div class="card">
-            <ul>
-                <li>Python Basics</li>
-                <li>Web Development Fundamentals</li>
-            </ul>
+        <div class="skill">
+          <span>MongoDB</span>
+          <div class="progress"><div style="width:75%"></div></div>
         </div>
-    </section>
 
-    <!-- STRENGTHS -->
-    <section id="strengths">
-        <h2>Strengths</h2>
-
-        <div class="card">
-            <ul>
-                <li>Quick Learner</li>
-                <li>Good Communication</li>
-                <li>Team Collaboration</li>
-                <li>Positive Attitude</li>
-            </ul>
+        <div class="skill">
+          <span>SQL</span>
+          <div class="progress"><div style="width:82%"></div></div>
         </div>
-    </section>
 
-    <!-- LANGUAGES -->
-    <section id="languages">
-        <h2>Languages</h2>
-
-        <div class="card">
-            <ul>
-                <li>English</li>
-                <li>Hindi</li>
-                <li>Punjabi</li>
-            </ul>
+        <div class="skill">
+          <span>Python</span>
+          <div class="progress"><div style="width:70%"></div></div>
         </div>
-    </section>
+      </div>
 
-    <!-- ACHIEVEMENTS -->
-    <section id="achievements">
-        <h2>Achievements</h2>
+    </div>
+  </section>
 
-        <div class="card">
-            <ul>
-                <li>Participated in college events and activities.</li>
-                <li>Worked on team-based academic projects.</li>
-                <li>Actively involved in volunteer activities.</li>
-                <li>Improved communication and teamwork skills.</li>
-            </ul>
-        </div>
-    </section>
+  <!-- Projects -->
+  <section id="projects">
 
-    <!-- CONTACT -->
-    <section id="contact">
-        <h2>Contact Me</h2>
+    <div class="section-title">
+      <h2>Projects</h2>
+      <p>Some of my recent work</p>
+    </div>
 
-        <div class="card">
-            <p>📞 Phone: +91-6280734886</p>
-            <p>✉ Email: sajalpreetkaur0@gmail.com</p>
-            <p>
-                💻 GitHub:
-                <a href="https://github.com/sajalpreet" target="_blank">
-                    github.com/sajalpreet
-                </a>
-            </p>
-        </div>
-    </section>
+    <div class="grid">
 
-    <!-- FOOTER -->
-    <footer>
-        <p>© 2026 SAJALPREET KAUR | All Rights Reserved</p>
-    </footer>
+      <div class="card">
+        <h3>Library Management System</h3>
+
+        <ul>
+          <li>Developed using Python and MySQL.</li>
+          <li>Added login authentication and database features.</li>
+          <li>Improved data management and problem-solving skills.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>RentOn Vehicle Management</h3>
+
+        <ul>
+          <li>Built using React.js, MongoDB, HTML, and CSS.</li>
+          <li>Created a responsive and modern user interface.</li>
+          <li>Vehicle rental management web application.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Portfolio Website</h3>
+
+        <ul>
+          <li>Designed a personal portfolio website.</li>
+          <li>Showcased projects, skills, and achievements.</li>
+          <li>Modern responsive interface with animations.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+
+    <div class="section-title">
+      <h2>Contact Me</h2>
+      <p>Let's connect together</p>
+    </div>
+
+    <div class="contact-box">
+      <p>📞 +91-6280734886</p>
+      <p>✉ sajalpreetkaur0@gmail.com</p>
+      <p>📍 Udhanwal, Punjab, India</p>
+      <p>
+        💻 GitHub:
+        <a href="https://github.com/sajalpreet" target="_blank" style="color:#8b5cf6;">
+          github.com/sajalpreet
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 SAJALPREET KAUR | All Rights Reserved
+  </footer>
 
 </body>
 </html>
